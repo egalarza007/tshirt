@@ -1,0 +1,254 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+body {
+  background: #fafafa;
+}
+.main, .header {
+  width: 100%;
+  margin: 20px auto;
+  max-width: 1000px;
+}
+.header-wrapper {
+  background: white;
+  border-bottom: 1px #e7e7e7 solid;
+  margin-bottom: 60px;
+  padding-top: 1px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  width: 200px;
+  margin: 0;
+  font-family: 'Grand Hotel', cursive;
+}
+.logo img {
+  display: block;
+  width: 100%;
+}
+
+.logo span {
+  display: block;
+  width: 100%;
+}
+.header-nav {
+  display: flex;
+}
+.header-nav > div {
+  margin-left: 20px;
+}
+.header-accounts .modal-trigger {
+  display: inline-block;
+}
+.pics-list-grid {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.pics-list-grid .pics-item {
+  width: 30%;
+}
+.pics-item {
+  position: relative;
+  margin-bottom: 40px;
+  cursor: pointer;
+}
+.pics-item img {
+  width: 100%;
+}
+.pics-item:hover .pics-meta {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.65);
+}
+.pics-meta {
+  display: flex;
+  opacity: 0;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: white;
+  pointer-events: none;
+}
+.pics-image img, .pics-details-image img {
+  display: block;
+  width: 100%;
+}
+.pics-details-modal .modal-body {
+  padding: 0;
+}
+.pics-details {
+  display: flex;
+}
+.pics-details .pics-info {
+  border-bottom: 1px solid #efefef;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+.pics-details .pics-info .modal-trigger {
+  display: inline-block;
+}
+.pics-details .pics-author {
+  font-size: 16px;
+  font-weight: bold;
+}
+.pics-details-sidebar {
+  width: 100%;
+  max-width: 300px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.pics-details-sidebar .icon {
+  opacity: 0.2;
+}
+.pics-details-sidebar .icon:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+.comments-list {
+  flex: 1;
+}
+.comments-item {
+  margin-bottom: 20px;
+  line-height: 1;
+}
+.comments-item .modal-trigger {
+  display: inline-block;
+  margin-left: 5px;
+}
+.comments-item-author {
+  font-size: 16px;
+  display: inline-block;
+  font-weight: bold;
+  margin-right: 5px;
+}
+.comments-item-body {
+  font-size: 16px;
+  display: inline;
+}
+.comments-new-form {
+  border-top: 1px solid #efefef;
+  margin-top: 20px;
+  padding-top: 20px;
+}
+.comments-new-form label {
+  display: none;
+}
+.comments-new-form .form-group {
+  margin: 0;
+}
+.comments-new-form .col-sm-9 {
+  float: none;
+  width: auto;
+  padding: 0;
+}
+.comments-new-form .btn {
+  display: none;
+}
+.comments-new-form .form-control {
+  border: none;
+  padding: 0;
+  width: 100%;
+}
+.pics-list-footer {
+  display: flex;
+  justify-content: center;
+}
+.load-more {
+  background: #3897f0;
+  color: white;
+  border-radius: 3px;
+  display: inline-block;
+  text-align: center;
+  padding: 10px 20px;
+}
+.load-more:hover {
+  text-decoration: none;
+  color: white;
+}
+.no-more {
+  text-align: center;
+}
+.footer {
+  padding: 20px 0;
+  text-align: center;
+  font-family: 'Grand Hotel', cursive;
+}
+
+.infinite-scroll-component{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.amber-text {
+  color: #ffc107!important;
+}
+ul,ul li{list-style-type:none}
+
+.inline-ul>li {
+  display: inline;
+}
+
+footer{
+  margin-top: 5em;
+}
+
+.product-meta p{
+  text-align: left;
+
+}
+
+.btn-primary {
+  background: #ff0000;
+  color: #fff!important;
+}
+
+.fa {
+  font-size: 30px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+}
+
+.fa-pinterest {
+  background: #cb2027;
+  color: white;
+}
