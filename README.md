@@ -1,4 +1,4 @@
-# tshirt
+# TSHIRT React Site
 ReactJS / Express / Mongo site
 ## Folder Structure
 
@@ -9,6 +9,14 @@ my-app/
   README.md
   node_modules/
   package.json
+  server.js
+  routes.js
+  config/
+    index.js
+  routes/
+    api.js
+    search.js
+    index.js
   public/
     index.html
     favicon.ico

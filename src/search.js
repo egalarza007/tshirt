@@ -13,6 +13,7 @@ class Search extends Component {
       url:"/api/search/"+props.match.params.id,
       page:1,
       redirect:false,
+      products: [],
       history : props.history
       
     };
@@ -36,7 +37,6 @@ class Search extends Component {
   }
 
     render() {
-      console.log(this.state)
       return (
         <div className="App">
         <Header 

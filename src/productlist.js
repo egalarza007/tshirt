@@ -7,6 +7,7 @@ import './App.css';
 const products = [];
 const ids = [];
 const names = [];
+const fetching = false;
 
 const contains = function (needle) {
   // Per spec, the way to identify NaN is that it is not equal to itself
@@ -43,6 +44,8 @@ class ProdctList extends Component {
       products: products,
       path: props && props.path ? props.path : "/api/products",
       page: props && props.page ? props.page : 1,
+      fetching:fetching,
+      hasMore:true
     };
 
     this.fetchData = this.fetchData.bind(this);
@@ -53,19 +56,24 @@ class ProdctList extends Component {
     this.setState({ products: [], page: 1 });
   }
 
+  componentWillUnmount(){
+    ids.length = 0;
+    names.length = 0;
+  }
+
   fetchData() {
     let config = {
       headers: { 'Access-Control-Allow-Origin': '*' }
     };
+    this.setState({ fetching: true });
 
     fetch(this.state.path + '/' + this.state.page, config)
       .then(
       response => response.json()
       )
       .then(data => {
-
         let products = data.filter(function (item) {
-          if (contains.call(ids, item.productId) || contains.call(names, item.Name)) {
+        if (contains.call(ids, item.productId) || contains.call(names, item.Name)) {
             return false; // skip
           }
           ids.push(item.productId);
@@ -88,25 +96,36 @@ class ProdctList extends Component {
               </div>)
           })
 
+
         this.setState({
           products: this.state.products.length > 0 ? this.state.products.concat(products) : products,
-          page: this.state.page + 1
+          page: this.state.page + 1,
+          fetching: false,
+          hasMore : products.length > 0 ? true : false
         });
 
       });
   }
 
   componentWillReceiveProps(newProps) {
-    this.setState({ products: [], page: 1, path: newProps.path });
+    this.setState({ page: 1, path: newProps.path });
   }
 
   componentDidMount () {
+    if(!this.state.fetching){
+      this.fetchData();
+    }
     window.scrollTo(0, 0)
+  }
+
+  componentWillMount(){
+    if(this.state.products.length === 0 && !this.state.fetching){
+      this.fetchData();
+    }
   }
 
   render() {
     return (
-
       <div className="pics-list">
          <Route path='/detail:id' component={Detail}/>
             <div className="pics-list-content">
@@ -121,7 +140,7 @@ class ProdctList extends Component {
                     next={
                       this.fetchData
                     }
-                    hasMore={true}
+                    hasMore={this.state.hasMore}
                  
                     endMessage={
                       <p style={{textAlign: 'center'}}>
